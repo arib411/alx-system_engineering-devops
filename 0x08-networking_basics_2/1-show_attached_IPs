@@ -1,13 +1,4 @@
-#!/bin/bash
-# Displays all active IPv4 addresses on the machine.
+#!/usr/bin/env bash
+# Displays all acive IPv4 addresses on the machine.
 
-# Check if 'ip' command is available, as it's more modern and widely supported
-if command -v ip &>/dev/null; then
-    ips=$(ip -4 addr show | grep inet | awk '{print $2}' | cut -d'/' -f1)
-else
-    # Fallback to 'ifconfig' if 'ip' is not available
-    ips=$(ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -d' ' -f2)
-fi
-
-# Display the IPv4 addresses
-echo "$ips"
+ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
