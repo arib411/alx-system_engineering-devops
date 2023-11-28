@@ -3,5 +3,5 @@
 # in per-user configuration files or on the command line.
 Host *
         IdentityFile ~/.ssh/school
-        PasswordAuthentication no
-        HostbasedAuthentication no
+        PasswordAuthentication yes
+        HostbasedAuthentication yes
